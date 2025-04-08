@@ -104,16 +104,7 @@ const AppPres = (props) => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [
-    props.isRunning,
-    props.remainingTime,
-    props.startedAt,
-    props.isWorking,
-    props.count,
-    props.onNotificationClicked,
-    props.onWorkEnd,
-    props.onBreakEnd,
-  ]);
+  },);
 
   return (
     <div className={props.className}>
@@ -123,19 +114,6 @@ const AppPres = (props) => {
       <Setting />
     </div>
   );
-};
-
-AppPres.propTypes = {
-  startedAt: PropTypes.number,
-  remainingTime: PropTypes.number,
-  isRunning: PropTypes.bool,
-  className: PropTypes.string,
-  isWorking: PropTypes.bool,
-  count: PropTypes.number,
-  total: PropTypes.number,
-  onNotificationClicked: PropTypes.func,
-  onWorkEnd: PropTypes.func,
-  onBreakEnd: PropTypes.func,
 };
 
 const mapStateToProps = (state) => {
