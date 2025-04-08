@@ -116,6 +116,19 @@ const AppPres = (props) => {
   );
 };
 
+AppPres.propTypes = {
+  startedAt: PropTypes.number,
+  remainingTime: PropTypes.number,
+  isRunning: PropTypes.bool,
+  className: PropTypes.string,
+  isWorking: PropTypes.bool,
+  count: PropTypes.number,
+  total: PropTypes.number,
+  onNotificationClicked: PropTypes.func,
+  onWorkEnd: PropTypes.func,
+  onBreakEnd: PropTypes.func,
+};
+
 const mapStateToProps = (state) => {
   return {
     startedAt: state.timer.startedAt,
