@@ -36,7 +36,7 @@ const Clock = (props) => {
   const progress = (props.time / props.total / 60 / 1000) * 100;
 
   return (
-    <div style={containerStyle}>
+    <div className="timer-container">
       <CircularProgress
         variant="determinate"
         color="inherit"
@@ -45,7 +45,7 @@ const Clock = (props) => {
         size={200}
         value={progress}
       />
-      <div style={{ fontSize: "40px" }}>{time}</div>
+      <div className="timer-time">{time}</div>
       <Favicon url="/favicon.ico" alertCount={min} />
     </div>
   );
@@ -110,7 +110,7 @@ const AppPres = (props) => {
     <div className={props.className}>
       <Clock time={remainingTime} total={props.total} />
       <StartButton />
-      <div style={{ marginTop: 24 }}> 達成済みセット数: {props.count} </div>
+      <div className="achieve-count"> 完了セット数: {props.count} </div>
       <Setting />
     </div>
   );

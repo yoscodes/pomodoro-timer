@@ -28,17 +28,11 @@ const Setting = ({
   };
 
   return (
-    <span style={{ lineHeight: "24px" }}>
+    <>
       {/* クリックすると、onEditが呼び出され、設定ダイアログを表示 */}
       <SettingsIcon
         onClick={onEdit}
-        color={grey[100]}
-        style={{
-          position: "relative",
-          top: "14px",
-          margin: "0 6px",
-          size: "18px",
-        }}
+        className="settings-icon"
       />
       <Dialog open={isEditing} onClose={onCancel}>
         <DialogTitle>時間設定</DialogTitle>
@@ -48,9 +42,7 @@ const Setting = ({
             type="number"
             style={{ marginRight: 12 }}
             value={workTime || ""} // 初期値がnullの場合、空文字列にする
-            // ユーザーがフィールドに入力するたびに、handleChange 関数が呼び出される
             onChange={(event) => handleChange("workTime", event)}
-            // selectTarget は、ユーザーが TextField をクリックしたときに、入力フィールドの中のテキストを選択状態にするための関数
             onClick={selectTarget}
             label="作業時間(分)"
             fullWidth
@@ -74,7 +66,7 @@ const Setting = ({
           </Button>
         </div>
       </Dialog>
-    </span>
+    </>
   );
 };
 

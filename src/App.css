@@ -1,22 +1,25 @@
+body, .App {
+  font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+}
+
 .App {
   text-align: center;
-  background-size: 100% 200%;
-  background-image: linear-gradient(
-    to bottom,
-    rgb(20, 146, 235) 50%,
-    rgb(29, 78, 31) 50%
-  );
-  color: #eee;
-  transition: background-position 1s;
+  background: linear-gradient(135deg, #1e90ff 0%, #00c6fb 100%);
+  color: #fff;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  height: 100vh;
+  transition: background 0.8s;
+}
+
+.App-working {
+  background: linear-gradient(135deg, #1e90ff 0%, #00c6fb 100%);
 }
 
 .App-break {
-  background-position: 0 -100%;
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
 }
 
 .App-header {
@@ -28,6 +31,94 @@
 
 .App-intro {
   font-size: large;
+}
+
+.timer-container {
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  padding: 32px;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 264px;
+  height: 264px;
+  justify-content: center;
+}
+
+.timer-time {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.MuiFab-root {
+  background: linear-gradient(135deg, #fff 60%, #e0e0e0 100%);
+  color: #1e90ff;
+  box-shadow: 0 4px 16px rgba(30,144,255,0.18);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.MuiFab-root:hover {
+  box-shadow: 0 8px 32px rgba(30,144,255,0.28);
+  transform: scale(1.08);
+}
+
+.achieve-count {
+  margin-top: 24px;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.35), 0 0px 1px #000;
+  background: rgba(0,0,0,0.18);
+  border-radius: 12px;
+  padding: 6px 18px;
+  display: inline-block;
+}
+
+.settings-icon {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  margin-top: 0;
+  color: #fff !important;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+  z-index: 100;
+  font-size: 2.2rem !important;
+}
+.settings-icon:hover {
+  color: #ffd600 !important;
+  transform: rotate(20deg) scale(1.2);
+}
+
+@media (max-width: 600px) {
+  .settings-icon {
+    top: 12px;
+    right: 12px;
+    font-size: 1.5rem !important;
+  }
+  .timer-container {
+    width: 180px;
+    height: 180px;
+    padding: 16px;
+  }
+  .timer-time {
+    font-size: 2rem;
+  }
 }
 
 @keyframes App-logo-spin {
