@@ -76,6 +76,12 @@ const AppPres = (props) => {
     setRemainingTime(props.remainingTime);
   }, [props.remainingTime]);
 
+  // アラーム音再生用関数
+  const playAlarm = () => {
+    const audio = new window.Audio(process.env.PUBLIC_URL + '/alarm.mp3');
+    audio.play();
+  };
+
   useEffect(() => {
     if (!props.isRunning) return;
 
@@ -85,6 +91,7 @@ const AppPres = (props) => {
       if (remaining > 0) {
         setRemainingTime(remaining);
       } else {
+        playAlarm(); // ←ここでアラーム音を再生
         showNotification("Time is up!", () => {
           props.onNotificationClicked();
         });
