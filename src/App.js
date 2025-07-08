@@ -19,13 +19,6 @@ const Clock = (props) => {
   const secStr = (sec % 60 < 10 ? "0" : "") + (sec % 60);
   const time = min + ":" + secStr;
 
-  const containerStyle = {
-    height: "200px",
-    width: "200px",
-    lineHeight: "200px",
-    position: "relative",
-  };
-
   const progressStyle = {
     transform: "scaleX(-1) rotate(-90deg)",
     position: "absolute",
