@@ -1,70 +1,139 @@
-# Getting Started with Create React App
+# ポモドーロタイマー 🍅
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+シンプルで使いやすいポモドーロテクニック用のタイマーアプリケーションです。作業時間と休憩時間を設定し、効率的な時間管理をサポートします。
 
-## Available Scripts
+## ✨ 機能
 
-In the project directory, you can run:
+- **⏱️ カスタマイズ可能なタイマー**: 作業時間と休憩時間を自由に設定
+- **🎯 ビジュアルプログレス**: 円形のプログレスバーで残り時間を視覚的に表示
+- **🔔 通知機能**: 時間終了時にブラウザ通知とアラーム音
+- **📊 セット数カウント**: 完了したポモドーロセット数を記録
+- **🎨 モダンUI**: Material-UIを使用した美しいインターフェース
+- **📱 レスポンシブデザイン**: デスクトップとモバイルに対応
+- **⚙️ 簡単設定**: ワンクリックで設定画面にアクセス
 
-### `npm start`
+## 🚀 セットアップ
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 前提条件
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js (v14以上)
+- npm または yarn
 
-### `npm test`
+### インストール
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. リポジトリをクローン
+```bash
+git clone <repository-url>
+cd pomodoro-timer
+```
 
-### `npm run build`
+2. 依存関係をインストール
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. 開発サーバーを起動
+```bash
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. ブラウザで `http://localhost:3000` を開く
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📦 使用技術
 
-### `npm run eject`
+- **React 19.1.0** - UIライブラリ
+- **Redux Toolkit** - 状態管理
+- **Material-UI (MUI)** - UIコンポーネント
+- **React Redux** - ReactとReduxの統合
+- **React Favicon** - ファビコン動的更新
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🎮 使い方
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 基本的な使い方
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. **タイマー開始**: 中央の再生ボタンをクリックしてタイマーを開始
+2. **一時停止**: 一時停止ボタンでタイマーを停止（残り時間は保持）
+3. **設定変更**: 右下の設定アイコンをクリックして時間を調整
+4. **通知確認**: 時間終了時にブラウザ通知が表示されます
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 設定項目
 
-## Learn More
+- **作業時間**: ポモドーロセッションの長さ（デフォルト: 25分）
+- **休憩時間**: セッション間の休憩時間（デフォルト: 5分）
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 通知機能
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+初回使用時にブラウザ通知の許可を求められます。許可することで：
+- 作業時間終了時に通知
+- 休憩時間終了時に通知
+- アラーム音の再生
 
-### Code Splitting
+## 🏗️ プロジェクト構造
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+src/
+├── actions/
+│   └── index.js          # Reduxアクション
+├── reducers/
+│   └── index.js          # Reduxリデューサー
+├── App.js                # メインアプリケーション
+├── Settings.js           # 設定コンポーネント
+├── notification.js       # 通知機能
+└── index.js              # エントリーポイント
+```
 
-### Analyzing the Bundle Size
+## 🔧 開発
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 利用可能なスクリプト
 
-### Making a Progressive Web App
+- `npm start` - 開発サーバーを起動
+- `npm test` - テストを実行
+- `npm run build` - 本番用ビルドを作成
+- `npm run eject` - Create React Appの設定を展開
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 状態管理
 
-### Advanced Configuration
+アプリケーションはReduxを使用して状態を管理しています：
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **timer**: タイマーの状態（残り時間、実行中かどうか、セット数など）
+- **setting**: ユーザー設定（作業時間、休憩時間）
+- **form**: 設定編集時の一時的な状態
 
-### Deployment
+## 🎨 カスタマイズ
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### テーマの変更
 
-### `npm run build` fails to minify
+`src/App.js`の`createTheme()`を編集してMaterial-UIテーマをカスタマイズできます。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### アラーム音の変更
+
+`public/alarm.mp3`を別の音声ファイルに置き換えることで、アラーム音を変更できます。
+
+## 📱 ブラウザ対応
+
+- Chrome (推奨)
+- Firefox
+- Safari
+- Edge
+
+## 🤝 貢献
+
+1. このリポジトリをフォーク
+2. 機能ブランチを作成 (`git checkout -b feature/amazing-feature`)
+3. 変更をコミット (`git commit -m 'Add some amazing feature'`)
+4. ブランチにプッシュ (`git push origin feature/amazing-feature`)
+5. プルリクエストを作成
+
+## 📄 ライセンス
+
+このプロジェクトはMITライセンスの下で公開されています。
+
+## 🙏 謝辞
+
+- [ポモドーロテクニック](https://francescocirillo.com/pages/pomodoro-technique) - フランチェスコ・チリッロ
+- [Material-UI](https://mui.com/) - UIコンポーネントライブラリ
+- [React](https://reactjs.org/) - JavaScriptライブラリ
+
+---
+
+**ポモドーロテクニック**は、25分の集中作業と5分の休憩を繰り返す時間管理手法です。このアプリを使用して、より効率的で生産的な作業習慣を身につけましょう！ 🍅✨
